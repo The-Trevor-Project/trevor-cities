@@ -1,0 +1,90 @@
+#get-involved {
+	.gsection {
+		display: none;
+	}
+
+	.gfield_label {
+		display: none;
+	}
+
+	.gform_wrapper {
+		margin-right: 0 !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		margin-top: rem-calc(80)!important;
+		input.large,
+		textarea.large,
+		select.large {
+			width: 100% !important;
+			margin-left: 0 !important;
+		}
+		.gform_footer {
+			text-align: center;
+			padding-bottom: 0!important;
+			.gform_button {
+				background-color: $pantone144c;
+				margin-bottom: 0!important;
+				padding: 1rem 1.5rem!important;
+				@include transition(background-color);
+				&:hover {
+					background-color: darken($pantone144c, 6%);
+				}
+			}
+		}
+		@include breakpoint(medium) {
+			.gform_column {
+				float: left;
+				width: 49%;
+				+ .gform_column {
+					margin-left: 2% !important;
+				}
+			}
+
+		}
+		[type='text'],
+		[type='password'],
+		[type='date'],
+		[type='datetime'],
+		[type='datetime-local'],
+		[type='month'],
+		[type='week'],
+		[type='email'],
+		[type='number'],
+		[type='search'],
+		[type='tel'],
+		[type='time'],
+		[type='url'],
+		[type='color'],
+		textarea,
+		select {
+			border-color: $pantone432c!important;
+			padding: 1rem!important;
+		}
+		[type='text'],
+		[type='password'],
+		[type='date'],
+		[type='datetime'],
+		[type='datetime-local'],
+		[type='month'],
+		[type='week'],
+		[type='email'],
+		[type='number'],
+		[type='search'],
+		[type='tel'],
+		[type='time'],
+		[type='url'],
+		[type='color'],
+		select {
+			height: rem-calc(55)!important;
+		}
+		textarea {
+			height: rem-calc(191)!important;
+		}
+	}
+	.gform_confirmation_wrapper {
+		text-align: center;
+		padding: rem-calc(20);
+		background-color: #ebebeb;
+		margin-top: rem-calc(20);
+	}
+}

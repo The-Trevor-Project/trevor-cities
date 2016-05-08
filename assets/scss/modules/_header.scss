@@ -1,0 +1,24 @@
+#masthead {
+	position: absolute;
+	top: rem-calc(30);
+	left: 0;
+	width: 100%;
+	z-index: 2;
+}
+#header-logo {
+	width: rem-calc(193);
+	@include breakpoint(small only) {
+		margin-top: rem-calc(8);
+	}
+}
+#header-nav {
+	.button {
+		text-transform: uppercase;
+		font-size: rem-calc(14);
+	}
+	.right-off-canvas-toggle {
+		border: 1px solid white;
+		background: none;
+		line-height: 0;
+	}
+}

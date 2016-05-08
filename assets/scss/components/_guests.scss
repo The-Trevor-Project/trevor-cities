@@ -1,0 +1,31 @@
+.guests {
+	.guest {
+		overflow: hidden;
+		margin-bottom: rem-calc(50);
+		h3,
+		p {
+			color: white;
+			margin: 0;
+			line-height: 1;
+		}
+		.wrapper,
+		.text-wrapper {
+			height: 100%;
+		}
+		h3 {
+			font-size: rem-calc(24);
+			margin-bottom: rem-calc(4);
+		}
+		p {
+			font-style: italic;
+		}
+		.text-wrapper {
+			background-color: $primary-color;
+			padding: rem-calc(15);
+		}
+		p.social-handle {
+			font-size: 1rem;
+			margin-top: rem-calc(4);
+		}
+	}
+}

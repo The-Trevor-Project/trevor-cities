@@ -1,0 +1,42 @@
+@mixin vertical-align($position: relative) {
+	position: $position;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+@mixin transition($type: all) {
+	-webkit-transition: $type 250ms ease-out!important;
+	-moz-transition: $type 250ms ease-out!important;
+	-ms-transition: $type 250ms ease-out!important;
+	-o-transition: $type 250ms ease-out!important;
+	transition: $type 250ms ease-out!important;
+}
+
+@mixin social-media() {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	float: none;
+	text-align: center;
+	li {
+		margin-left: 0.375rem;
+		float: none !important;
+		display: inline-block !important;
+		&:first-of-type {
+			margin-left: 0;
+		}
+		a {
+			height: 2rem;
+			width: 2rem;
+			text-align: center;
+			color: #fff;
+			border-radius: 50%;
+			padding-top: 0.375rem;
+			font-size: 1rem;
+			display: block;
+		}
+	}
+}
+

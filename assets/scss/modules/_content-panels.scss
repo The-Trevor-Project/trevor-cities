@@ -1,0 +1,19 @@
+.content-panel {
+	padding: rem-calc(120) 0;
+	h2 {
+		color: $primary-color;
+	}
+	h3 {
+		color: $pantone144c;
+	}
+	&.background {
+		background-size: cover;
+		background-position: center center;
+		h2 {
+			color: white;
+		}
+		h3 {
+			color: white;
+		}
+	}
+}

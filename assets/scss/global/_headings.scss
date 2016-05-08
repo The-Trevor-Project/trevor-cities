@@ -1,0 +1,23 @@
+h1,
+h2,
+h3 {
+	text-transform: uppercase;
+}
+
+h1 {
+	color: white;
+	margin-bottom: 0;
+	@include breakpoint(small only) {
+	    margin-top: rem-calc(55);
+	}
+}
+
+// Headings on colored panels
+
+.filter {
+	h2,
+	h3,
+	p {
+		color: white!important;
+	}
+}

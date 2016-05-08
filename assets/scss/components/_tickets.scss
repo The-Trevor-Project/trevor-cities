@@ -1,0 +1,45 @@
+.accordion {
+	border: none;
+	li.accordion-navigation {
+		margin-bottom: rem-calc(30) !important;
+		display: block;
+		.accordion-content {
+			background: #f3f5f6;
+			padding: 1.4rem;
+			border-bottom: none;
+		}
+		> a {
+			text-transform: uppercase;
+			font-weight: $font-bold;
+			font-size: rem-calc(24);
+			color: $pantone432c;
+			background-color: #dbe1e5;
+			line-height: 1;
+			padding: 1rem 1.4rem;
+		}
+		>.content.active {
+			background: #f3f5f6;
+			padding: 1.4rem;
+		}
+		&.active>a {
+			background-color: #dbe1e5;
+			color: $pantone432c;
+		}
+		.button.secondary {
+			padding: .5rem 1rem;
+			width: 100%;
+			background-color: $pantone144c;
+			&:hover {
+				background-color: darken( $pantone144c, 6% );
+			}
+		}
+		p:not(.price):last-of-type {
+			margin-bottom: 0;
+		}
+	}
+	p.price {
+		font-weight: 600;
+		font-size: rem-calc(22);
+		margin-bottom: rem-calc(10);
+	}
+}

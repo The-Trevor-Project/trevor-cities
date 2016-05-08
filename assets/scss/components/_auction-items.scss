@@ -1,0 +1,43 @@
+.auction-items {
+	.auction-item {
+		overflow: hidden;
+		margin-bottom: rem-calc(50);
+		h3,
+		p {
+			color: $secondary-color!important;
+			margin: 0;
+			line-height: 1;
+		}
+		.image-wrapper {
+			position: relative;
+			z-index: 1;
+			span.value {
+				position: absolute;
+				right: 0;
+				background-color: white;
+				padding: rem-calc(1) rem-calc(4);
+				font-size: rem-calc(14);
+				color: $secondary-color;
+				z-index: 2;
+			}
+		}
+		.has-tip {
+			border-bottom: none;
+		}
+		.wrapper,
+		.text-wrapper {
+			height: 100%;
+		}
+		h3 {
+			font-size: rem-calc(24);
+			margin-bottom: rem-calc(4);
+		}
+		p {
+			font-style: italic;
+		}
+		.text-wrapper {
+			background-color: white;
+			padding: rem-calc(15);
+		}
+	}
+}
