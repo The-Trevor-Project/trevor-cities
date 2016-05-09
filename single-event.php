@@ -422,39 +422,88 @@ get_template_part( 'template-parts/featured-image' ); ?>
 
 						foreach ( $event_sponsors as $post ) :
 
-							if ($counter % 4 == 0) {
-								echo '<div class="row partner-logos">';
+							if ($counter % 6 == 0) {
+
+								// Don't use 'sponsor' in the public class name or it will be blocked by Ad-blockers
+								echo '<div class="row partners">';
 							}
 
 							setup_postdata( $post );
 							$sponsor_name = get_the_title();
 							$sponsor_logo = get_field( 'sponsor_logo' );
-							$sponsor_website_url = get_field( 'sponsor_website_url' ); ?>
+							$sponsor_website_url = get_field( 'sponsor_website_url' );
 
-							<div class="small-6 medium-3 <?php
-							if( $event_sponsors_count == 1 || ($counter == $event_sponsors_count - 1 && $event_sponsors_count % 4 == 1 ) ) {
-								echo 'small-centered medium-centered';
+							/**
+							 *
+							 * LOGO COLUMN CLASSES
+							 * Requires: $counter variable set to 0 outside of the foreach loop
+							 * Requires: $event_sponsors_count variable set to the total number of sponsors that will be looped through
+							 * Returns $sponsor_column_classes
+							 *
+							 */
+
+
+							// If there is only 1 sponsor OR after a full row of 6 sponsors, there is 1 sponsor remaining
+							if ( $event_sponsors_count == 1 || $event_sponsors_count % 6 == 1 ) {
+								$sponsor_column_classes = NULL;
+								$sponsor_column_classes = 'small-centered';
 							}
-							if( $event_sponsors_count == 2 && $counter == 0 || ($counter == $event_sponsors_count - 2 && $internal_count % 4 == 2 ) ) {
-								echo 'medium-offset-3';
+
+							// If there are 2 sponsors OR after a full row of 6 sponsors, there are 2 sponsors remaining
+							if( $event_sponsors_count == 2 || ( $counter > 5 && $event_sponsors_count % 6 == 2 ) ) {
+								$sponsor_column_classes = NULL;
+								$sponsor_column_classes = 'medium-offset-4';
 							}
-							if( $event_sponsors_count == 3 && $counter == 0 || ($counter == $event_sponsors_count - 3 && $event_sponsors_count % 4 == 3 )  ) {
-								echo 'medium-offset-1-5';
+
+							// If there are 3 sponsors OR after a full row of 6 sponsors, there are 3 remaining
+							if( $event_sponsors_count == 3 || $event_sponsors_count % 6 == 3 ) {
+								$sponsor_column_classes = NULL;
+								$sponsor_column_classes = 'medium-offset-3';
 							}
-							?> columns text-center partner-logo <?php /* Will add "end" class if it's the last item in the array */ if ($event_sponsors_count == $counter + 1 && $event_sponsors_count != 1) { echo ' end';} ?>">
-								<a href="<?php echo $sponsor_website_url; ?>">
+
+							// If there are 4 sponsors OR after a full row of 6 sponsors, there are 4 remaining
+							if ( $event_sponsors_count == 4 || $event_sponsors_count % 6 == 4 ) {
+								$sponsor_column_classes = NULL;
+								$sponsor_column_classes = 'medium-offset-2';
+							}
+
+							// If there are 5 sponsors OR after a full row of 6 sponsors, there are 4 remaining
+							if ( $event_sponsors_count == 5 || $event_sponsors_count % 6 == 5 ) {
+								$sponsor_column_classes = NULL;
+								$sponsor_column_classes = 'medium-offset-1';
+							}
+
+							// Only add the $sponsor_column_classes if there is 1 item OR its the beginning of a new row
+							if ( $counter == 0 || $counter % 6 == 0 ) {
+								$column_classes = 'small-4 medium-2 ' . $sponsor_column_classes;
+							} else {
+								$column_classes = 'small-4 medium-2';
+							}
+
+							if ( $counter + 1 == $event_sponsors_count && $event_sponsors_count > 1 ) {
+								$column_classes .= ' end';
+							}
+
+							?>
+							<div class="<?php echo $column_classes; ?> columns partner">
+								<a href="<?php echo $sponsor_website_url; ?>" target="_blank">
 									<img src="<?php echo $sponsor_logo; ?>" alt="<?php echo $sponsor_name; ?>">
 								</a>
 							</div>
-
 							<?php
+
+							// Increase the $counter variable by 1 each time we complete the loop
 							$counter++;
 
-							if ($counter == $event_sponsors_count) {
+
+							if ( $counter == $event_sponsors_count ) {
 								echo '</div>';
-							} elseif ($counter % 4 == 0) {
+							} elseif ($counter % 6 == 0) {
 								echo '</div>';
 							}
+
+							// Reset $sponsor_column_classes
+							$sponsor_column_classes = NULL;
 
 						endforeach;
 
@@ -465,23 +514,6 @@ get_template_part( 'template-parts/featured-image' ); ?>
 				endif;
 
 				?>
-				<div class="row">
-					<div class="column businesses owl-carousel">
-<!--						--><?php
-//						$posts = get_field('national_sponsors');
-//
-//						if( $posts ): ?>
-<!--							--><?php //foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-<!--								<div class="business text-center">-->
-<!--									<a href="--><?php //echo get_field( 'sponsor_website_url', $p->ID ); ?><!--"><img src="--><?php //echo get_field( 'sponsor_logo', $p->ID ); ?><!--"></a>-->
-<!--								</div>-->
-<!--							--><?php //endforeach; ?>
-<!--						--><?php //endif; ?>
-
-
-
-					</div>
-				</div>
 			</div>
 		</section>
 		<!-- /Sponsors -->

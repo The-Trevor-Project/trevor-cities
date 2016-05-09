@@ -19,7 +19,7 @@
 
 // Third-party libraries
 @import 'font-awesome';
-@import 'motion-ui';
+//@import 'motion-ui';
 
 // Foundation global styles
 @include foundation-global-styles;
@@ -30,9 +30,9 @@
 @include foundation-button;
 @include foundation-forms;
 @include foundation-visibility-classes;
-@include foundation-float-classes;
+//@include foundation-float-classes;
 @include foundation-accordion;
-@include foundation-accordion-menu;
+//@include foundation-accordion-menu;
 //@include foundation-badge;
 //@include foundation-breadcrumbs;
 //@include foundation-button-group;
@@ -61,8 +61,8 @@
 //@include foundation-top-bar;
 
 // Motion UI
-@include motion-ui-transitions;
-@include motion-ui-animations;
+//@include motion-ui-transitions;
+//@include motion-ui-animations;
 
 /*
   My custom styles:
@@ -93,6 +93,7 @@
 @import "components/guests";
 @import "components/tickets";
 @import "components/forms";
+@import "components/sponsors";
 
 // Templates
 //@import "templates/front";
