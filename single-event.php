@@ -444,7 +444,7 @@ get_template_part( 'template-parts/featured-image' ); ?>
 
 
 							// If there is only 1 sponsor OR after a full row of 6 sponsors, there is 1 sponsor remaining
-							if ( $event_sponsors_count == 1 || $event_sponsors_count % 6 == 1 ) {
+							if ( $event_sponsors_count == 1 || ( $event_sponsors_count % 6 == 1 ) && $counter != 0 ) {
 								$sponsor_column_classes = NULL;
 								$sponsor_column_classes = 'small-centered';
 							}
@@ -480,7 +480,7 @@ get_template_part( 'template-parts/featured-image' ); ?>
 								$column_classes = 'small-4 medium-2';
 							}
 
-							if ( $counter + 1 == $event_sponsors_count && $event_sponsors_count > 1 ) {
+							if ( $counter + 1 == $event_sponsors_count && $event_sponsors_count > 1 && $event_sponsors_count % 6 != 1) {
 								$column_classes .= ' end';
 							}
 
