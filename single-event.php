@@ -130,6 +130,11 @@ get_template_part( 'template-parts/featured-image' ); ?>
 					$counter = 0;
 					$guests_count = count( $guests );
 					while( have_rows( 'guests_repeater' ) ): the_row();
+
+						// Guest Variables
+						$guest_name = get_sub_field( 'guest_name' );
+						$guest_title = get_sub_field( 'title' );
+						$guest_subheading = get_sub_field( 'guest_subheading' );
 						?>
 						<div class="small-6 medium-3
 						<?php
@@ -148,12 +153,13 @@ get_template_part( 'template-parts/featured-image' ); ?>
 									<img src="<?php the_sub_field( 'guest_photo' ); ?>" alt="<?php the_sub_field( 'guest_name' ) ?>">
 								</div>
 								<div class="text-wrapper">
-									<h3>
-										<?php the_sub_field( 'guest_name' ); ?>
-									</h3>
-									<p class="type">
-										<?php the_sub_field( 'guest_subheading' ); ?>
-									</p>
+									<h3><?php echo $guest_name; ?></h3>
+									<?php if( $guest_title ) : ?>
+										<p class="title"><?php echo $guest_title; ?></p>
+									<?php endif; ?>
+									<?php if( $guest_subheading ) : ?>
+									<p class="type"><?php echo $guest_subheading; ?></p>
+									<?php endif; ?>
 								</div>
 							</div>
 						</div>

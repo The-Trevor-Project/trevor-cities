@@ -13,11 +13,18 @@
 			height: 100%;
 		}
 		h3 {
-			font-size: rem-calc(24);
+			font-size: rem-calc(18);
+			@include breakpoint(medium) {
+			    font-size: rem-calc(24)
+			}
 			margin-bottom: rem-calc(4);
 		}
-		p {
+		p.type {
 			font-style: italic;
+		}
+		p.title {
+			line-height: 1.2;
+			margin-bottom: rem-calc(8);
 		}
 		.text-wrapper {
 			background-color: $primary-color;
