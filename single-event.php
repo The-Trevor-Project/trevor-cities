@@ -17,6 +17,8 @@ $tickets_description = get_field( 'tickets_description' );
 
 $donation_form_id = get_field( 'donation_form_id' );
 
+$hide_silent_auction = get_field( 'hide_silent_auction' );
+
 get_template_part( 'template-parts/featured-image' ); ?>
 
 	<div id="page-full-width" role="main">
@@ -176,7 +178,7 @@ get_template_part( 'template-parts/featured-image' ); ?>
 		</section>
 		<!-- /Special Guests-->
 
-
+		<?php if( $hide_silent_auction != 1 ) : ?>
 		<!-- Silent Auction -->
 		<section id="silent-auction" style="background-image: url('<?php the_field( 'silent_auction_background_image' ) ?>')">
 			<div class="filter">
@@ -249,6 +251,7 @@ get_template_part( 'template-parts/featured-image' ); ?>
 				</div>
 			</div>
 		</section><!-- /Silent Auction -->
+		<?php endif; ?>
 
 		<!-- Silent Auction Donation -->
 
@@ -277,7 +280,7 @@ get_template_part( 'template-parts/featured-image' ); ?>
 		?>
 
 		<section id="tickets">
-			<div class="content-panel">
+			<div class="content-panel<?php if( $hide_silent_auction == 1 ) : ?> no-top-padding<?php endif; ?>">
 				<div class="row">
 					<div class="medium-10 columns medium-centered text-center">
 						<h2 <?php if( empty( $tickets_description ) ):?>class="no-description"<?php endif; ?>><?php the_field( 'tickets_heading' ); ?></h2>
