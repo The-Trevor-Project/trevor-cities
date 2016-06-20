@@ -29,8 +29,8 @@ get_template_part( 'template-parts/featured-image' ); ?>
 			<div class="filter">
 				<?php if( !empty( $event_date ) ) : ?>
 				<!-- Countdown -->
-				<div id="countdown" class="hide-for-small-only">
-					<div class="row" data-equalizer>
+				<div id="countdown">
+					<div class="row" data-equalizer data-equalize-on="medium">
 						<div class="small-12 medium-9 columns">
 							<div class="countdown-description" data-equalizer-watch>
 								<p class="heading">Days Until <?php the_field( 'event_title' ); ?></p>

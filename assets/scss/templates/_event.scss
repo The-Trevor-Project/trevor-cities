@@ -33,14 +33,25 @@
 	.countdown-days {
 		background-color: $secondary-color;
 		border: rem-calc(6) solid white;
+		text-align: center;
+		@include breakpoint(medium) {
+		    text-align: left;
+		}
 	}
 
 	.countdown-description {
 		padding: rem-calc(36);
+		border-bottom: none;
+		@include breakpoint(medium) {
+			border-bottom: rem-calc(6) solid white;
+		}
 	}
 
 	.heading {
-		font-size: rem-calc(38);
+		font-size: rem-calc(20);
+		@include breakpoint(medium) {
+			font-size: rem-calc(38);
+		}
 		font-weight: $font-semibold;
 		text-transform: uppercase;
 		margin-bottom: 0.8rem;
@@ -50,12 +61,19 @@
 	}
 
 	.sub-heading {
-		font-size: rem-calc(26);
+		font-size: rem-calc(18);
+		@include breakpoint(medium) {
+			font-size: rem-calc(26);
+		}
 		font-weight: $font-light;
 		font-style: italic;
 	}
 	.countdown-days {
-		font-size: rem-calc(100);
+		font-size: rem-calc(80);
+		@include breakpoint(medium) {
+		    font-size: rem-calc(100);
+			text-align: center;
+		}
 		font-weight: $font-bold;
 	}
 	.wrapper-table {
